@@ -14,8 +14,10 @@
 	<table class="table text-center">
 		<thead class="thead-dark">
 			<th> </th>
-			<th>ID часов</th>
-			<th>Имя</th>
+			<th>Имя товара</th>
+			<th>Цена</th>
+			<th>Количество</th>
+			<th>Логин покупателя</th>
             <th>Email</th>
             <th>Номер телефона</th>
 		</thead>

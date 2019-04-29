@@ -1,16 +1,12 @@
 @extends('layouts.layout')
 @section('title', 'Данные о товаре')
 @section('content')
-
-	<div class="mt-4 ml-4">
-	<h1>Название: </h1>
-	<h1>{{ $products->name }}</h1>
-	<p>id:</p>
-	<p>{{ $products->id }}</p>	
-	<p>Цена:</p>
-	<p>{{ $products->price }}</p>
-	<p>Изображение:</p>
-	<p><img style="width:200px; height:auto;" src="{{ asset($products->image)}}"></p>
-	<hr>
-	</div>
+		<div class="text-center">
+		<h3 style = "color:white">Данные о товаре</h3>
+			<img src="{{ asset($products->image) }}" class="card-img-top" style = "width: 350px;" alt="{{ $products->name }}">
+			<div class="card-body">
+				<p>{{ $products->name }}</p>
+				<p class="card-text lead">{{ $products->price }} rub.</p>
+			</div>
+		</div>
 @stop
