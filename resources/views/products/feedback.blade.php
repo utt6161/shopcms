@@ -1,6 +1,6 @@
 @extends('layouts.add')
 
-@section('title', 'Заказы')
+@section('title', 'Отзыв')
 
 @section('content')
 	<form class = "frm" action = "{{ route('feedback.add') }}" method = "post">

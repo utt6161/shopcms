@@ -1,5 +1,5 @@
 @extends('layouts.add')
-@section('title', 'Заказы')
+@section('title', 'Заказ')
 @section('content')
 	<form class = "frm" action = "{{ route('orders.addaction') }}" method = "post">
 		@csrf 

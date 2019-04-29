@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Часики')
+@section('title', 'Товары')
 
 @section('content')
 @if(Session::has('message'))
