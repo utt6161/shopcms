@@ -37,4 +37,9 @@
 	</table>
 	</div>
 </form>
+<div class="row">
+	<div class="col-2 mx-auto">
+		{{ $orders->links() }}
+	</div>
+	</div>
 @stop

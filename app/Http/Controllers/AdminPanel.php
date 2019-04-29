@@ -24,7 +24,7 @@ class AdminPanel extends Controller
 	//----------------- [ products ] -------------------
 	
 	public function productsConfig(){
-    	$products = \App\Shop::all();
+    	$products = \App\Shop::paginate(5);
     	$correct = "";
     	return view('adminpanel.products_config',['products'=>$products]);
     }
@@ -44,7 +44,7 @@ class AdminPanel extends Controller
     }
 
     public function showProductsDeletePage(){ //deletePage
-    	$products = \App\Shop::all();
+    	$products = \App\Shop::paginate(5);
     	return view('adminpanel.products_delete',['products'=>$products]);
     }
 
@@ -71,12 +71,12 @@ class AdminPanel extends Controller
 	// ----------------------[ orders ]-----------------------------
 
 	public function ordersConfig(){
-		$orders = \App\Orders::all();
+		$orders = \App\Orders::paginate(5);
     	return view('adminpanel.orders_config',['orders'=>$orders]);
     }
 
 	public function showOrdersDeletePage(){ //deletePage
-		$orders = \App\Orders::all();
+		$orders = \App\Orders::paginate(5);
     	return view('adminpanel.orders_delete',['orders'=>$orders]);
     }
 
@@ -98,12 +98,12 @@ class AdminPanel extends Controller
     // ----------------------[ feedback ]-----------------------------
 	
     public function feedbackConfig(){
-        $feedback = \App\Feedback::all();
+        $feedback = \App\Feedback::paginate(5);
         return view('adminpanel.feedback_config',['feedback' => $feedback]);
     }
 
     public function showFeedbackDeletePage(){
-        $feedback = \App\Feedback::all();
+        $feedback = \App\Feedback::paginate(5);
         return view('adminpanel.feedback_delete',['feedback'=>$feedback]);
     }
 

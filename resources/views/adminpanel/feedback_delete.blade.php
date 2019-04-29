@@ -31,6 +31,11 @@
 			@endforeach
 		</tbody>
 	</table>
+	<div class="row">
+		<div class="col-2 mx-auto">
+			{{ $feedback->links() }}
+		</div>
+	</div>
 	</div>
 </form>
 @stop

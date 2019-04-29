@@ -18,8 +18,10 @@ class ShoppingCart extends Controller
     public function __construct(Request $request)
     {
         $this->middleware('auth');
-        if(Gate::allows('isAdmin')|| Gate::allows('isUser')){
-            return redirect()->route('auth.login');
+        Session::forget('message');
+        if(!Gate::allows('isAdmin') && !Gate::allows('isUser')){
+            Session::flash('message','В целях безопасности, авторизируйтесь');
+            return redirect()->route('login');
         }
     }
 
@@ -59,14 +61,14 @@ class ShoppingCart extends Controller
                                             'id' => $request->id,
                                             'name' => $request->name,
                                             'price' => $request->price,
-                                            'quantity' => 1,
+                                            'quantity' => $request->quantity,
                                             'attributes' => array(
                                                 'image' => $request->image
                                             )
                                         ));
-        Session::flash('message','Товар был добавлен в вашу корзину');
-        $shop = \App\Shop::all();
-    	return view('products.productslist',['products'=>$shop]);
+        //Session::flash('message','Товар был добавлен в вашу корзину');
+        $shop = \App\Shop::paginate(3);
+    	return redirect()->route("products.products");
     }
 
     public function delete(Request $request){

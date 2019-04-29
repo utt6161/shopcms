@@ -38,9 +38,6 @@
                 <a class="dropdown-item" href="{{ url('/admin/orders') }}">Заказы</a>
               </div>
             </li>
-            <li class="nav-item btn btn-secondary">
-              <a class="nav-link active" href="{{ url('/logout') }}">Выход</a>
-            </li>
             @endcan
           
         @if(!Gate::check('isUser') && !Gate::check('isAdmin'))
@@ -58,18 +55,13 @@
         @if(Gate::check('isUser') || Gate::check('isAdmin'))
 
             <li class="nav-item btn btn-secondary">
-            <a class="nav-link active"">{{Auth::user()->name}}</a>
+            <a class="nav-link active">{{Auth::user()->name}}</a>
+            </li>
+            <li class="nav-item btn btn-secondary">
+              <a class="nav-link active" href="{{ url('/logout') }}">Выход</a>
             </li>
 
         @endif
-
-        @can('isUser')
-
-          <li class="nav-item btn btn-secondary">
-            <a class="nav-link active" href="{{ url('/logout') }}">Выход</a>
-          </li>
-
-        @endcan
         </ul>
         </div>
       </nav>
