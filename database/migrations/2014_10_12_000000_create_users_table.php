@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->json('role')->default(json_encode(array('user')));
+            $table->string('role')->default(json_encode(array('user')));
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
